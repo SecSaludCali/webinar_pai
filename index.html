@@ -23,7 +23,6 @@
                         titulos: ['"cc-highjinkies"', 'sans-serif'],
                     },
                     colors: {
-                        // Custom Palette based on image
                         paiOrange: '#F39C34', // Nutria
                         paiBrown: '#8B6F5A',  // Zarigueya
                         paiBlue: '#2F80ED',   // Complementario Blue
@@ -54,24 +53,20 @@
             overflow-x: hidden;
         }
 
-        /* Aplicando la fuente Typekit a la clase typekit-font */
         .typekit-font {
             font-family: "cc-highjinkies", sans-serif;
             font-weight: 400;
             font-style: normal;
         }
 
-        /* Utilidad Glassmorphism para tarjetas */
         .glass {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(244, 216, 176, 0.5);
-            /* paiBeige border */
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* Ocultar idiomas según la clase del body */
         body.lang-es .lang-pt {
             display: none !important;
         }
@@ -80,7 +75,6 @@
             display: none !important;
         }
 
-        /* Estilos estructurales de la línea de tiempo (Agenda) */
         .timeline-line {
             position: absolute;
             left: 50%;
@@ -88,7 +82,6 @@
             width: 4px;
             height: 100%;
             background: linear-gradient(to bottom, #F39C34, #2F80ED);
-            /* Naranja a Azul */
             border-radius: 4px;
         }
 
@@ -109,7 +102,6 @@
             }
         }
 
-        /* Animación de scroll */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -121,7 +113,6 @@
             transform: translateY(0);
         }
 
-        /* Scrollbars personalizados */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -139,7 +130,7 @@
             background: #F39C34;
         }
 
-        /* --- CSS Corregido del Popup de Avatar --- */
+        /* Pop-up Avatar CSS */
         .avatar-container {
             position: relative;
             display: inline-block;
@@ -155,7 +146,6 @@
             position: absolute;
             top: 50%;
             left: 120%;
-            /* Aparece a la derecha por defecto */
             transform: translateY(-50%) scale(0);
             transform-origin: left center;
             opacity: 0;
@@ -164,11 +154,8 @@
             pointer-events: none;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             border: 4px solid #F39C34;
-            /* Borde Naranja base */
-            /* El radio se define en las clases de Tailwind (rounded-2xl) para mantener forma cuadrada */
         }
 
-        /* Ajuste móvil para que el popup salga hacia arriba en pantallas pequeñas */
         @media (max-width: 768px) {
             .avatar-popup {
                 top: auto;
@@ -202,12 +189,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0 flex items-center gap-4">
-                    <!-- Logo Institucional -->
                     <div
                         class="h-12 w-auto bg-white rounded-lg p-1 shadow-sm border border-paiBeige flex items-center justify-center min-w-[120px] overflow-hidden">
                         <img src="logo.png" alt="Logo Institucional" class="h-full w-full object-contain">
                     </div>
-
                     <div class="hidden sm:flex items-center gap-2 border-l-2 border-paiBeige pl-4 ml-2">
                         <div
                             class="w-8 h-8 rounded-lg bg-paiBlue flex items-center justify-center text-white font-bold text-sm shadow-md">
@@ -218,7 +203,6 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
-                    <!-- Language Toggle -->
                     <button id="langToggle"
                         class="flex items-center gap-2 px-4 py-2 rounded-full glass hover:bg-paiBeige/30 transition-colors text-sm font-semibold text-paiBrown border border-paiBeige">
                         <i class="fa-solid fa-language text-paiOrange"></i>
@@ -238,11 +222,11 @@
     <!-- Hero Section -->
     <section
         class="relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 flex flex-col items-center justify-center min-h-screen text-center">
-
-        <!-- Logo PAI Portada -->
         <div
             class="mb-8 w-48 h-48 md:w-56 md:h-56 bg-white rounded-full shadow-xl border-4 border-paiBeige flex items-center justify-center animate-fade-in-up relative overflow-hidden group">
             <img src="pai.png" alt="Logo PAI Portada" class="w-full h-full object-contain p-2">
+            <div class="absolute inset-0 bg-paiOrange opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+            </div>
         </div>
 
         <div
@@ -319,20 +303,17 @@
                 <div class="h-1 w-20 bg-paiOrange mx-auto rounded-full"></div>
             </div>
 
-            <!-- Video Call Container: SIN LIMITES DE SCROLL, CRECE NATURALMENTE -->
+            <!-- Contenedor Videollamada SIN LIMITES -->
             <div
                 class="bg-[#1e1e1e] rounded-3xl shadow-2xl overflow-hidden border border-[#333] flex flex-col lg:flex-row">
 
-                <!-- Main Screen (Mascot / Presenter) -->
+                <!-- Pantalla Principal (Mascota PAI) -->
                 <div class="relative w-full lg:w-3/4 bg-black flex flex-col justify-between p-2 lg:p-4 group">
                     <div
                         class="relative w-full h-full min-h-[300px] md:min-h-[450px] bg-[#2a2a2a] rounded-2xl flex items-center justify-center overflow-hidden">
-                        <!-- Imagen de la Mascota PAI FIJA Y COMPLETA -->
                         <img src="mascota.png"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                             alt="Mascota PAI" class="w-full h-full object-contain p-4">
-
-                        <!-- Fallback si la imagen no carga -->
                         <div class="absolute inset-0 flex items-center justify-center bg-[#2a2a2a] hidden">
                             <div class="text-center">
                                 <i class="fa-solid fa-otter text-6xl text-paiOrange mb-4"></i>
@@ -340,7 +321,6 @@
                             </div>
                         </div>
 
-                        <!-- Video overlay tags -->
                         <div
                             class="absolute top-4 left-4 bg-black/70 backdrop-blur px-3 py-1.5 rounded-lg flex items-center gap-2 border border-white/10">
                             <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
@@ -356,31 +336,31 @@
                         </div>
                     </div>
 
-                    <!-- Call Controls -->
+                    <!-- Controles -->
                     <div class="pt-4 pb-2 px-2 flex justify-center items-center gap-2 lg:gap-4 shrink-0">
                         <button
-                            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] flex items-center justify-center text-white transition-colors border border-white/5"><i
+                            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] flex items-center justify-center text-white border border-white/5"><i
                                 class="fa-solid fa-microphone-slash"></i></button>
                         <button
-                            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] flex items-center justify-center text-white transition-colors border border-white/5"><i
+                            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] flex items-center justify-center text-white border border-white/5"><i
                                 class="fa-solid fa-video"></i></button>
                         <button
-                            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] flex items-center justify-center text-white transition-colors border border-white/5"><i
+                            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] flex items-center justify-center text-white border border-white/5"><i
                                 class="fa-regular fa-face-smile"></i></button>
                         <button
-                            class="w-12 h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] items-center justify-center text-white transition-colors border border-white/5 md:flex hidden"><i
+                            class="w-12 h-12 rounded-full bg-[#3c4043] hover:bg-[#4d5154] items-center justify-center text-white border border-white/5 md:flex hidden"><i
                                 class="fa-solid fa-closed-captioning"></i></button>
                         <button
-                            class="w-14 h-10 lg:w-16 lg:h-12 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white transition-colors shadow-lg shadow-red-900/50 ml-2 lg:ml-4"><i
+                            class="w-14 h-10 lg:w-16 lg:h-12 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white shadow-lg shadow-red-900/50 ml-2 lg:ml-4"><i
                                 class="fa-solid fa-phone-slash"></i></button>
                     </div>
                 </div>
 
-                <!-- Sidebar Grid (Speakers) - ASPECT SQUARE STRICTO, SIN SCROLL -->
+                <!-- Barra lateral Ponentes - ESTRICTAMENTE CUADRADAS, SIN SCROLL -->
                 <div class="w-full lg:w-1/4 bg-[#1e1e1e] border-t lg:border-t-0 lg:border-l border-[#333] p-4">
                     <div class="grid grid-cols-2 lg:grid-cols-1 gap-4">
 
-                        <!-- Speaker 1 -->
+                        <!-- Ponente 1 -->
                         <div
                             class="relative aspect-square bg-[#2a2a2a] rounded-xl overflow-hidden shadow-lg border border-white/5">
                             <div
@@ -409,7 +389,7 @@
                             </div>
                         </div>
 
-                        <!-- Speaker 2 -->
+                        <!-- Ponente 2 -->
                         <div
                             class="relative aspect-square bg-[#2a2a2a] rounded-xl overflow-hidden shadow-lg border border-white/5">
                             <div
@@ -438,7 +418,7 @@
                             </div>
                         </div>
 
-                        <!-- Speaker 3 -->
+                        <!-- Ponente 3 -->
                         <div
                             class="relative aspect-square bg-[#2a2a2a] rounded-xl overflow-hidden shadow-lg border border-white/5">
                             <div
@@ -466,7 +446,7 @@
                             </div>
                         </div>
 
-                        <!-- Speaker 4 -->
+                        <!-- Ponente 4 -->
                         <div
                             class="relative aspect-square bg-[#2a2a2a] rounded-xl overflow-hidden shadow-lg border border-white/5">
                             <div
@@ -527,9 +507,9 @@
                 </div>
             </div>
 
-            <!-- CONTENEDOR RELATIVO PARA ASEGURAR LA LÍNEA -->
+            <!-- CONTENEDOR DE LÍNEA DE TIEMPO -->
             <div class="relative w-full py-8">
-                <!-- LA LÍNEA CONTINUA -->
+                <!-- LA LÍNEA CONTINUA CENTRAL -->
                 <div class="timeline-line shadow-sm"></div>
 
                 <!-- Ítem 1 (Moderador) -->
@@ -560,7 +540,7 @@
                     </div>
                 </div>
 
-                <!-- Ítem 2 (Dra. Marta Soler) - Lado Alterno -->
+                <!-- Ítem 2 (Dra. Marta Soler) -->
                 <div
                     class="relative flex flex-col md:flex-row-reverse justify-between items-center w-full mb-12 reveal">
                     <div class="timeline-content-left w-full md:w-5/12 pl-0 md:pl-8 text-left hidden md:block">
@@ -576,11 +556,8 @@
                         class="timeline-content-right w-full md:w-5/12 pl-[60px] md:pl-0 md:pr-8 text-left md:text-right">
                         <div class="md:hidden text-xl font-bold text-paiOrange time-display mb-1 typekit-font"
                             data-time-base="09:35">09:35 a. m.</div>
-                        <!-- CERRADO EL CONTENEDOR GLASS CORRECTAMENTE -->
                         <div
                             class="glass bg-white p-5 rounded-2xl hover:bg-paiBeige/10 transition-colors border-l-4 md:border-l-0 md:border-r-4 border-paiOrange shadow-sm">
-
-                            <!-- Interactive Title with Avatar -->
                             <div class="flex items-center md:justify-end gap-3 mb-2 relative">
                                 <div class="avatar-container hidden md:block shrink-0">
                                     <div
@@ -588,7 +565,6 @@
                                         <img src="photo_marta.jpg" alt="Dra. Marta Soler"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <!-- POPUP CUADRADO, GRANDE Y SIN RESTRICCIONES DE ANCHO -->
                                     <img src="photo_marta.jpg" alt="Dra. Marta Soler"
                                         class="avatar-popup w-48 h-48 md:w-64 md:h-64 object-cover rounded-2xl max-w-none aspect-square shadow-2xl">
                                 </div>
@@ -599,12 +575,10 @@
                                         <img src="photo_marta.jpg" alt="Dra. Marta Soler"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <!-- POPUP CUADRADO, GRANDE Y SIN RESTRICCIONES DE ANCHO -->
                                     <img src="photo_marta.jpg" alt="Dra. Marta Soler"
                                         class="avatar-popup w-48 h-48 object-cover rounded-2xl max-w-none aspect-square shadow-2xl">
                                 </div>
                             </div>
-
                             <p class="text-paiBrown text-sm">
                                 <span class="lang-es">Estrategias para fortalecer las coberturas de vacunación y
                                     principales aprendizajes del Ministerio de Sanidad.</span>
@@ -632,8 +606,6 @@
                             data-time-base="10:05">10:05 a. m.</div>
                         <div
                             class="glass bg-white p-5 rounded-2xl hover:bg-paiBeige/10 transition-colors border-l-4 border-l-green-600 shadow-sm">
-
-                            <!-- Interactive Title with Avatar -->
                             <div class="flex items-center gap-3 mb-2 relative">
                                 <div class="avatar-container shrink-0">
                                     <div
@@ -641,14 +613,12 @@
                                         <img src="photo_ana.jpg" alt="Dra. Ana Catarina"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <!-- POPUP CUADRADO, GRANDE Y SIN RESTRICCIONES DE ANCHO -->
                                     <img src="photo_ana.jpg" alt="Dra. Ana Catarina"
                                         class="avatar-popup w-48 h-48 md:w-64 md:h-64 object-cover rounded-2xl max-w-none aspect-square shadow-2xl"
                                         style="border-color: #16a34a;">
                                 </div>
                                 <h4 class="text-lg font-bold text-black font-titulos">Dra. Ana Catarina</h4>
                             </div>
-
                             <p class="text-paiBrown text-sm">
                                 <span class="lang-es">Estrategias para fortalecer las coberturas de vacunación y
                                     principales aprendizajes del Ministerio de Salud.</span>
@@ -659,7 +629,7 @@
                     </div>
                 </div>
 
-                <!-- Ítem 4 (Dr. Germán Escobar) - Lado Alterno -->
+                <!-- Ítem 4 (Dr. Germán Escobar) -->
                 <div
                     class="relative flex flex-col md:flex-row-reverse justify-between items-center w-full mb-12 reveal">
                     <div class="timeline-content-left w-full md:w-5/12 pl-0 md:pl-8 text-left hidden md:block">
@@ -675,12 +645,8 @@
                         class="timeline-content-right w-full md:w-5/12 pl-[60px] md:pl-0 md:pr-8 text-left md:text-right">
                         <div class="md:hidden text-xl font-bold text-paiBlue time-display mb-1 typekit-font"
                             data-time-base="10:35">10:35 a. m.</div>
-
-                        <!-- EL CONTENEDOR GLASS FALTANTE HA SIDO RESTAURADO AQUÍ -->
                         <div
                             class="glass bg-white p-5 rounded-2xl hover:bg-paiBeige/10 transition-colors border-l-4 md:border-l-0 md:border-r-4 border-paiBlue shadow-sm">
-
-                            <!-- Interactive Title with Avatar -->
                             <div class="flex items-center md:justify-end gap-3 mb-2 relative">
                                 <div class="avatar-container hidden md:block shrink-0">
                                     <div
@@ -688,7 +654,6 @@
                                         <img src="photo_german.jpeg" alt="Dr. Germán Escobar"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <!-- POPUP CUADRADO, GRANDE Y SIN RESTRICCIONES DE ANCHO -->
                                     <img src="photo_german.jpeg" alt="Dr. Germán Escobar"
                                         class="avatar-popup w-48 h-48 md:w-64 md:h-64 object-cover rounded-2xl max-w-none aspect-square shadow-2xl"
                                         style="border-color: #2F80ED;">
@@ -700,13 +665,11 @@
                                         <img src="photo_german.jpeg" alt="Dr. Germán Escobar"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <!-- POPUP CUADRADO, GRANDE Y SIN RESTRICCIONES DE ANCHO -->
                                     <img src="photo_german.jpeg" alt="Dr. Germán Escobar"
                                         class="avatar-popup w-48 h-48 object-cover rounded-2xl max-w-none aspect-square shadow-2xl"
                                         style="border-color: #2F80ED;">
                                 </div>
                             </div>
-
                             <p class="text-paiBrown text-sm">
                                 <span class="lang-es">La cooperación internacional como eje para fortalecer la salud
                                     pública y los programas de inmunización.</span>
@@ -734,7 +697,6 @@
                             data-time-base="11:05">11:05 a. m.</div>
                         <div
                             class="glass bg-white p-5 rounded-2xl hover:bg-paiBeige/10 transition-colors border-l-4 border-l-paiOrange shadow-sm">
-                            <!-- Interactive Title with Avatar -->
                             <div class="flex items-center gap-3 mb-2 relative">
                                 <div class="avatar-container shrink-0">
                                     <div
@@ -742,13 +704,11 @@
                                         <img src="photo_carlos.jpg" alt="Dr. Carlos Pinzón"
                                             class="w-full h-full object-cover">
                                     </div>
-                                    <!-- POPUP CUADRADO, GRANDE Y SIN RESTRICCIONES DE ANCHO -->
                                     <img src="photo_carlos.jpg" alt="Dr. Carlos Pinzón"
                                         class="avatar-popup w-48 h-48 md:w-64 md:h-64 object-cover rounded-2xl max-w-none aspect-square shadow-2xl">
                                 </div>
                                 <h4 class="text-lg font-bold text-black font-titulos">Dr. Carlos E. Pinzón</h4>
                             </div>
-
                             <p class="text-paiBrown text-sm">
                                 <span class="lang-es">Experiencia del Distrito de Cali en el fortalecimiento del
                                     PAI.</span>
@@ -758,7 +718,7 @@
                     </div>
                 </div>
 
-                <!-- Ítem 6 (Panelistas) - Lado Alterno -->
+                <!-- Ítem 6 (Todos los Panelistas) -->
                 <div
                     class="relative flex flex-col md:flex-row-reverse justify-between items-center w-full mb-12 reveal">
                     <div class="timeline-content-left w-full md:w-5/12 pl-0 md:pl-8 text-left hidden md:block">
@@ -820,38 +780,74 @@
         </div>
     </section>
 
-    <!-- Call to Action / Footer -->
+    <!-- Footer con Llamado a la Acción y Logos -->
     <footer class="relative z-10 border-t border-paiBeige/50 bg-white mt-20">
         <div class="max-w-4xl mx-auto px-4 py-16 text-center reveal">
-            <h2 class="text-4xl font-extrabold text-black mb-6 typekit-font">
+            <h2 class="text-4xl font-extrabold text-black mb-10 typekit-font">
                 <span class="lang-es">¡Participa en el Webinar!</span>
                 <span class="lang-pt">Participe do Webinar!</span>
             </h2>
-            <p class="text-lg text-paiBrown mb-8 max-w-2xl mx-auto">
-                <span class="lang-es">Conéctate para conocer experiencias internacionales que contribuyen al
-                    fortalecimiento de la vacunación. Escanea el código QR o haz clic en el botón.</span>
-                <span class="lang-pt">Participe para conhecer experiências internacionais que contribuem para o
-                    fortalecimento da vacinação. Escaneie o código QR ou clique no botão.</span>
-            </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <div
-                    class="p-3 bg-white rounded-xl shadow-lg border border-paiBeige transform rotate-3 hover:rotate-0 transition-transform">
-                    <img src="qr.png" alt="QR Code" class="w-32 h-32 rounded-lg">
-                </div>
-                <div class="flex flex-col gap-4">
-                    <a href="https://meet.google.com/xbs-xggs-jsc" target="_blank"
-                        class="px-8 py-4 rounded-full bg-paiOrange text-white font-bold text-lg hover:bg-[#e08b22] hover:shadow-[0_10px_20px_rgba(243,156,52,0.3)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-video"></i>
-                        <span class="lang-es">Unirme a la transmisión</span>
-                        <span class="lang-pt">Entrar na transmissão</span>
+            <!-- Bloque de Botones y QR Lado a Lado -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Tarjeta 1: Inscripción -->
+                <div class="flex flex-col items-center gap-4">
+                    <div
+                        class="p-4 bg-white rounded-2xl shadow-xl border border-paiBeige transform hover:-translate-y-1 transition-transform">
+                        <img src="qr_for.png" alt="QR Inscripción" class="w-40 h-40 rounded-lg">
+                    </div>
+                    <a href="https://docs.google.com/forms/d/1J6V2pFrP4Oxch1nCoEHfJwzWKOXAkIonQXgmYpWb1Yc/viewform?hl=es&hl=es&edit_requested=true"
+                        target="_blank"
+                        class="px-6 py-3 w-full max-w-[280px] rounded-full bg-paiOrange text-white font-bold hover:bg-[#e08b22] hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span class="lang-es">Inscripción</span>
+                        <span class="lang-pt">Inscrição</span>
                     </a>
-                    <p class="text-sm text-paiBrown font-medium">
-                        <i class="fa-regular fa-calendar-check mr-2"></i> 29 / 07 / 2026 - Modalidad Virtual
-                    </p>
+                </div>
+
+                <!-- Tarjeta 2: Transmisión (Meet) -->
+                <div class="flex flex-col items-center gap-4">
+                    <div
+                        class="p-4 bg-white rounded-2xl shadow-xl border border-paiBeige transform hover:-translate-y-1 transition-transform">
+                        <img src="qr.png" alt="QR Transmisión" class="w-40 h-40 rounded-lg">
+                    </div>
+                    <a href="https://meet.google.com/xbs-xggs-jsc" target="_blank"
+                        class="px-6 py-3 w-full max-w-[280px] rounded-full bg-paiBlue text-white font-bold hover:bg-[#256bc1] hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-video"></i>
+                        <span class="lang-es">Unirse al Meet</span>
+                        <span class="lang-pt">Entrar no Meet</span>
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-sm text-paiBrown font-medium">
+                <i class="fa-regular fa-calendar-check mr-2"></i> 29 / 07 / 2026 - Modalidad Virtual
+            </p>
+        </div>
+
+        <!-- Sección de Logos Institucionales -->
+        <div class="max-w-5xl mx-auto px-4 py-10 border-t border-paiBeige/30">
+            <p class="text-center text-paiBrown font-medium mb-8 text-sm uppercase tracking-widest">
+                <span class="lang-es">Con el apoyo de:</span>
+                <span class="lang-pt">Com o apoio de:</span>
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+                <!-- Logo 1: Ministerio de Sanidad (España) -->
+                <div class="h-20 w-48 flex items-center justify-center">
+                    <img src="españa.png" alt="Ministerio de Sanidad España"
+                        class="max-h-full max-w-full object-contain">
+                </div>
+                <!-- Logo 2: Ministério da Saúde (Brasil) -->
+                <div class="h-20 w-48 flex items-center justify-center">
+                    <img src="brasil.png" alt="Ministério da Saúde Brasil" class="max-h-full max-w-full object-contain">
+                </div>
+                <!-- Logo 3: Secretaría de Salud (Cali) -->
+                <div class="h-20 w-48 flex items-center justify-center">
+                    <img src="logo.png" alt="Secretaría de Salud de Cali" class="max-h-full max-w-full object-contain">
                 </div>
             </div>
         </div>
+
         <div class="py-6 border-t border-paiBeige/30 text-center text-paiBrown text-sm bg-[#fafafa]">
             © 2026 PAI Conecta.
             <span class="lang-es">Todos los derechos reservados.</span>
@@ -860,7 +856,7 @@
     </footer>
 
     <script>
-        // --- Navbar Scroll Effect ---
+        // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -874,7 +870,7 @@
             }
         });
 
-        // --- Language Toggle Logic ---
+        // Language Toggle Logic
         const langToggle = document.getElementById('langToggle');
         let currentLang = 'es';
 
@@ -892,7 +888,7 @@
             }
         });
 
-        // --- Countdown Logic ---
+        // Countdown Logic
         const targetDate = new Date('2026-07-29T09:30:00-05:00').getTime();
 
         const updateCountdown = () => {
@@ -921,7 +917,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // --- Scroll Reveal Animations ---
+        // Scroll Reveal Animations
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -933,7 +929,7 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // --- Timezone Switcher Logic ---
+        // Timezone Switcher Logic
         const timeOffsets = { 'cot': 0, 'cest': 7, 'brt': 2 };
 
         const formatTime = (baseStr, offsetHours) => {
@@ -973,7 +969,7 @@
             });
         });
 
-        // Activar COT por defecto
+        // Activar COT por defecto al cargar
         document.querySelector('.tz-btn.active').click();
 
     </script>
